@@ -1,0 +1,22 @@
+.button-row {
+    margin: auto 0 15px auto;
+}
+
+.button-row button {
+    margin-right: 8px;
+}
+
+mat-card {
+    width: 60%;
+    align-content: center;
+    margin: 15px auto 0 auto;
+}
+
+mat-card-content, mat-card-title, mat-card-footer {
+    text-align: center;
+    align-content: center;
+}
+
+mat-form-field {
+    width: 75%;
+}

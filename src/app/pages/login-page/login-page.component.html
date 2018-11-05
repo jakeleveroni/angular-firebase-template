@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>
+    <p>Create Account</p>
+  </mat-card-title>
+  <mat-card-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="credentials.email">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput [(ngModel)]="credentials.password">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-footer>
+    <div class="button-row">
+      <button mat-raised-button color="secondary" (click)="createAccount()">Create</button>
+      <button mat-raised-button color="primary" (click)="login()">Login</button>
+    </div>
+  </mat-card-footer>
+</mat-card>

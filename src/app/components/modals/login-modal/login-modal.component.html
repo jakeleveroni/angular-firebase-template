@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Login</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="credentials.email">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput [(ngModel)]="credentials.password">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="secondary" (click)="close()">Nevermind</button>
+  <button mat-raised-button color="primary" cdkFocusInitial (click)="login()">Login</button>
+</div>

@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Create Account</h1>
+<div mat-dialog-content>
+  <p>Please fill out the form to create your new account!</p>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="credentials.email">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Username (optional - if not specified it will be your email before the '@')</mat-label>
+    <input matInput [(ngModel)]="credentials.username">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput [(ngModel)]="credentials.password">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="secondary" (click)="close()">Nevermind</button>
+  <button mat-raised-button color="primary" cdkFocusInitial (click)="createAccount()">Create</button>
+</div>

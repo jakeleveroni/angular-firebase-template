@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">  
+  <mat-toolbar-row>
+    <span class="home-btn">
+      <mat-icon (click)="gohome()">home</mat-icon>
+    </span>
+    <span>Nova - Social Fame Awaits</span>
+    <span class="spacer"></span>
+    <span>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="gotoAdmin()" [disabled]="!(authServ.authInfo$|async)?.isLoggedIn()">
+          <mat-icon>dialpad</mat-icon>
+          <span>Admin</span>
+        </button>
+      </mat-menu>
+    </span> 
+    <span *ngIf="!(authServ.authInfo$|async)?.isLoggedIn()"><button mat-flat-button class="login-btn" (click)="gotoLogin()">Login</button></span>
+    <span *ngIf="(authServ.authInfo$|async)?.isLoggedIn()"><button mat-flat-button class="login-btn" (click)="logout()">Logout</button></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

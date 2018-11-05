@@ -1,0 +1,18 @@
+.top-toolbar {
+    height: 64px;
+}
+.sidebar-container {
+    height: calc(100vh - 128px);
+}
+
+.sidenav {
+    background: rgba(0,0,0,0.08);
+}
+
+.entity-content-area {
+    padding: 15px 25px 15px 25px;
+}
+
+.sub-menu-option {
+    margin-left: 20px;
+}

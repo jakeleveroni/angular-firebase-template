@@ -1,0 +1,28 @@
+<mat-card *ngIf="(formSchema$|async) as schema">
+  <div *ngIf="(formModel$|async) as model">
+    <mat-card-title class='dynamic-form-card-header'>
+      <p>{{schema.title}}{{' - ' + schema.subtitle || ''}}</p>
+    </mat-card-title>
+    <mat-card-content>
+      <div *ngFor="let inputRow of schema.inputs">
+          <mat-form-field *ngFor="let input of inputRow" 
+            [appearance]="schema.style"
+            [ngClass]="{
+              'full-width': inputRow.length === 1,
+              'three-quarter-width': inputRow.length === 3,
+              'half-width': inputRow.length === 2,
+              'quarter-width': inputRow.length === 4
+            }">
+            <mat-label>{{input.label}}</mat-label>
+            <input matInput [placeholder]="input.placeholder"/>
+          </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-footer>
+      <div class="button-row">
+        <button mat-raised-button color="primary" (click)="saveSubject$.next(true)">Save</button>
+        <button mat-raised-button color="danger" (click)="deleteSubject$.next(true)">Delete</button>
+      </div>
+    </mat-card-footer>
+  </div>
+</mat-card>

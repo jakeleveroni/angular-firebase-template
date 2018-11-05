@@ -1,0 +1,40 @@
+mat-card {
+    width: 75%;
+    margin: 25px auto 10px auto;
+}
+
+mat-form-field {
+    margin-right: 1%;
+}
+
+.dynamic-form-card-header {
+    margin-top: 5px;
+}
+
+.dynamic-form-card-header > p {
+    margin-top: 5px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.quarter-width {
+    width: 21%;
+}
+
+.half-width {
+    width: 48%;
+}
+
+.three-quarter-width {
+    width: 75%;
+}
+
+.button-row {
+    margin: auto 0 15px 15px;
+}
+
+.button-row button {
+    margin-right: 8px;
+}

@@ -1,0 +1,28 @@
+<div>
+  <mat-toolbar color="secondary" class="top-toolbar">
+    <mat-toolbar-row>
+      <span>
+        <h1>Admin Editor</h1>
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-drawer-container class="sidebar-container">
+    <mat-drawer mode="side" opened class="sidenav">
+      <div *ngFor="let option of (sideMenuOps$|async)">
+        <button mat-menu-item (click)="routeTo(option)">
+          <mat-icon>{{option?.iconName}}</mat-icon>
+          <span>{{option.displayName}}</span>
+        </button>
+        <button mat-menu-item class="sub-menu-option" *ngFor="let subOption of option.subMenuOps" (click)="routeTo(option, subOption)">
+          <mat-icon>{{subOption?.iconName}}</mat-icon>
+          <span>{{subOption.displayName}}</span>
+        </button>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="editor-content-area">
+        <router-outlet #outlet="outlet" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

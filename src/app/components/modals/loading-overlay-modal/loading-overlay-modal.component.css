@@ -1,0 +1,18 @@
+.loading-modal-area {
+    text-align: center;
+}
+
+.spinner-area {
+    width: 100%;
+    text-align: center;
+    align-content: center;
+}
+
+.loading-modal-area > h1 {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+mat-spinner {
+    margin: 50px auto auto auto;
+}
