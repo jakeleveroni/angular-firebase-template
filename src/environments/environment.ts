@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    "apiKey": "AIzaSyBo30Xg_Ahye_IGtA3TntGuJOHgvZdE61k",
-    "authDomain": "supernova-97571.firebaseapp.com",
-    "databaseURL": "https://supernova-97571.firebaseio.com",
-    "projectId": "supernova-97571",
-    "storageBucket": "supernova-97571.appspot.com",
-    "messagingSenderId": "1081277611846"
+    apiKey: "AIzaSyDlEAw51BEFgxr8pkHEVpIHaoRjDrgIx7Q",
+    authDomain: "citizen-science-tahoe-3.firebaseapp.com",
+    databaseURL: "https://citizen-science-tahoe-3.firebaseio.com",
+    projectId: "citizen-science-tahoe-3",
+    storageBucket: "citizen-science-tahoe-3.appspot.com",
+    messagingSenderId: "502403272301"
   }
 };
 

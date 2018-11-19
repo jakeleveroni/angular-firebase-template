@@ -1,0 +1,26 @@
+<div class="multi-question-form-content">
+  <mat-form-field>
+    <mat-label>Multiple Response Question</mat-label>
+    <textarea matInput rows="2" [(ngModel)]="question.questionString"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Key (unique key for question)</mat-label>
+    <input matInput [(ngModel)]="question.key" />
+  </mat-form-field>
+
+  <br>
+
+  <mat-checkbox matInput [(ngModel)]="question.optional">Question Is Optional</mat-checkbox>
+
+  <h3>Possible Answers</h3>
+  <div *ngFor="let choice of question.choices; let i = index">
+    <mat-form-field>
+      <mat-label>Choice #{{i+1}}</mat-label>
+      <input matInput [(ngModel)]="choice.label" />
+    </mat-form-field>
+    <button class="remove-button" mat-raised-button color="warn" (click)="removeChoice(choice)">Remove</button>
+  </div>
+
+  <button class="add-choice-button" mat-raised-button color="accent" (click)="addChoice()">Add Choice</button>
+</div>

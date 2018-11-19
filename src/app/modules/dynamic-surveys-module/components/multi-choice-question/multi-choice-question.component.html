@@ -1,0 +1,3 @@
+<h3>{{question.questionString}}</h3>
+<mat-checkbox *ngFor="let choice of choices" [(ngModel)]="choice.checked">{{choice.label}}
+</mat-checkbox>

@@ -30,7 +30,7 @@ export class LoginPageComponent implements OnInit {
       .then(() => {
         this.router.navigate(['home']).catch(err => console.log(err));
       })
-      .catch(err => console.log(err))
+      .catch(err => console.error(err))
       .then(() => this.loadingServ.dismissLoading());
   }
 
@@ -41,7 +41,7 @@ export class LoginPageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('modal closed', result)
+      // console.log('modal closed', result)
     });
   }
 }

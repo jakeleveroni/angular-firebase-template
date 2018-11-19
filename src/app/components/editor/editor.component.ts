@@ -34,11 +34,9 @@ export class EditorComponent implements OnInit {
   }
 
   public onActivate(event: any) {
-    console.log('activate', event);
   }
 
   public onDeactivate(event: any) {
-    console.log('deactivate', event);
   }
 
 }

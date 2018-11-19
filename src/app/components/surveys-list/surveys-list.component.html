@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>All Surveys</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <h3 mat-subheader>Surveys</h3>
+      <mat-list-item *ngFor="let survey of (surveys$|async)" (click)="viewSurvey(survey)">
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <h4 mat-line>{{survey.title}}</h4>
+        <p mat-line> {{survey.blurb | truncate: [25]}} </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -3,18 +3,16 @@ import { BaseDatabaseModel, BaseDto } from "./base-dto.model";
 export class UserModel extends BaseDatabaseModel {
     public email: string;
     public username?: string;
-    public firstName: string;
-    public lastName: string;
 
-    constructor(email: string, first: string, last: string, username?: string) {
+    constructor(id: string, email: string, username?: string) {
         super();
+        this.id = id;
         this.email = email;
-        this.firstName = first;
-        this.lastName = last;
+        this.username = username;
     }
 
     public static fromDto(user: UserDto): UserModel {
-        return new UserModel(user.email, user.firstName, user.lastName, user.username);
+        return new UserModel(user.id, user.email, user.username);
     }
 
     public toDto(): UserDto {
@@ -22,15 +20,19 @@ export class UserModel extends BaseDatabaseModel {
             id: this.id,
             username: this.username,
             email: this.email,
-            firstName: this.firstName,
-            lastName: this.lastName
         };
+    }
+
+    public static emptyDto(): UserDto {
+        return {
+            id: null,
+            email: null,
+            username: null
+        }
     }
 }
 
 export interface UserDto extends BaseDto {
     username?: string;
     email: string;
-    firstName: string;
-    lastName: string;
 }

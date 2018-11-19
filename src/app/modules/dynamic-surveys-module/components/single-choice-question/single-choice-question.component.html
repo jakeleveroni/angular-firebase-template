@@ -1,0 +1,10 @@
+<div>
+  <h2>{{question.questionString}}</h2>
+  <mat-radio-group>
+    <mat-radio-button 
+      *ngFor="let choice of question.choices" 
+      class="single-choice-option"
+      [value]="choice.value"
+    >{{choice.label}}</mat-radio-button>
+  </mat-radio-group>
+</div>

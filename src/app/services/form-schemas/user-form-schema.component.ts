@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { UserDto } from 'src/app/models/user.model';
 import { BaseFormSchema } from './base-form-schema';
 import { FormSchema } from '../../components/dynamic-form/dynamic-form.component';
+import { tap, switchMap } from 'rxjs/operators';
 
 @Injectable()
 export class UserFormSchemaService extends BaseFormSchema implements OnInit {
@@ -12,19 +13,11 @@ export class UserFormSchemaService extends BaseFormSchema implements OnInit {
   constructor() { 
     super();
     this.onSave$.pipe(
-      // TODO save here
-    ).subscribe(d => console.log('save'));
+    ).subscribe(d => console.log('save', d));
 
     this.onDelete$.pipe(
       //TODO delete here
-    ).subscribe(d => console.log('delete'));
-
-    this.user$ = of({
-      email: 'test',
-      firstName: 'jake',
-      lastName: 'leveroni',
-      username: 'jleveroni'
-    } as UserDto)
+    ).subscribe(d => console.log('delete', d));
 
     this.schema$ = of({
       title: 'User',
@@ -35,7 +28,6 @@ export class UserFormSchemaService extends BaseFormSchema implements OnInit {
           {
             key: 'id',
             label: 'User Id',
-            placeholder: 'The users unique id',
             displayField: 'id'
           },
         ],
@@ -43,13 +35,11 @@ export class UserFormSchemaService extends BaseFormSchema implements OnInit {
           {
             key: 'first',
             label: 'First Name',
-            placeholder: 'John',
             displayField: 'firstName'
           },
           {
             key: 'last',
             label: 'Last Name',
-            placeholder: 'Doe',
             displayField: 'lastName'
           },
         ],
@@ -57,7 +47,6 @@ export class UserFormSchemaService extends BaseFormSchema implements OnInit {
           {
             key: 'email',
             label: 'Email Address',
-            placeholder: 'johndoe@example.com',
             displayField: 'email'
           }
         ]

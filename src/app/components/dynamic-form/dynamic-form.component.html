@@ -14,14 +14,14 @@
               'quarter-width': inputRow.length === 4
             }">
             <mat-label>{{input.label}}</mat-label>
-            <input matInput [placeholder]="input.placeholder"/>
+            <input matInput [placeholder]="input.placeholder" [(ngModel)]="model[input.displayField]"/>
           </mat-form-field>
       </div>
     </mat-card-content>
     <mat-card-footer>
       <div class="button-row">
-        <button mat-raised-button color="primary" (click)="saveSubject$.next(true)">Save</button>
-        <button mat-raised-button color="danger" (click)="deleteSubject$.next(true)">Delete</button>
+        <button mat-raised-button color="primary" (click)="saveSubject$.next(model)">Save</button>
+        <button mat-raised-button color="danger" (click)="deleteSubject$.next(model)">Delete</button>
       </div>
     </mat-card-footer>
   </div>

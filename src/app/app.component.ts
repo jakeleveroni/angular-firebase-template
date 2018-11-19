@@ -26,7 +26,6 @@ export class AppComponent {
 
   public logout() {
     this.authServ.logout().then(() => {
-      console.log('logged out');
       this.router.navigate(['home']).catch(err => console.error('could not navigate login'));
     }).catch(err => {
       console.error(`could not logout ${err}`);

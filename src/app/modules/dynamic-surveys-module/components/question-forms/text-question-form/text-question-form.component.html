@@ -1,0 +1,17 @@
+<div class="text-response-form-content">
+  <mat-form-field>
+    <mat-label>Text Response Question</mat-label>
+    <textarea matInput rows="2" [(ngModel)]="question.questionString"></textarea>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-label>Key (unique key for question)</mat-label>
+    <input matInput [(ngModel)]="question.key" />
+  </mat-form-field>
+
+  <br>
+
+  <mat-checkbox matInput [(ngModel)]="question.optional">Question Is Optional</mat-checkbox>
+</div>

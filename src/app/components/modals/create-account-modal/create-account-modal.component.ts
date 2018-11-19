@@ -10,7 +10,7 @@ import { LoadingService } from 'src/app/services/loading.service';
   styleUrls: ['./create-account-modal.component.css']
 })
 export class CreateAccountModalComponent {
-  constructor(private authServ: AuthenticationService, 
+  constructor(private authServ: AuthenticationService,
     public dialogRef: MatDialogRef<CreateAccountModalComponent>,
     @Inject(MAT_DIALOG_DATA) public credentials: CreateAccountData,
     private router: Router, private loadingServ: LoadingService) { 
@@ -43,5 +43,4 @@ export class CreateAccountModalComponent {
 export interface CreateAccountData {
   email: string;
   password: string;
-  username?: string;
 }

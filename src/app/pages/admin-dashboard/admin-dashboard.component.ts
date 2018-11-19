@@ -25,14 +25,14 @@ export class AdminDashboardComponent implements OnInit {
         ]
       },
       {
-        route: 'contestants',
-        iconName: 'person',
-        displayName: 'Manage Contestants',
+        route: 'surveys',
+        iconName: 'people',
+        displayName: 'Manage Surveys',
         subMenuOps: [
           {
             route: 'create',
-            iconName: 'person_add',
-            displayName: 'Create Contestant',
+            iconName: 'group_add',
+            displayName: 'Create New Survey',
           }
         ]
       },

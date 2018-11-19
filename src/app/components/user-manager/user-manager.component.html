@@ -1,6 +1,6 @@
 <app-dynamic-form
-  [formSchema$]="userSchema.schema$"
-  [formModel$]="userSchema.user$"
-  [saveSubject$]="userSchema.onSave$"
-  [deleteSubject$]="userSchema.onDelete$">
+  [formSchema$]="schemaServ.schema$"
+  [formModel$]="user$"
+  [saveSubject$]="schemaServ.onSave$"
+  [deleteSubject$]="schemaServ.onDelete$">
 </app-dynamic-form>

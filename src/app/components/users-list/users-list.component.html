@@ -1,3 +1,13 @@
-<p>
-  users-list works!
-</p>
+<mat-card>
+    <mat-card-title>All Surveys</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <h3 mat-subheader>Users</h3>
+        <mat-list-item *ngFor="let user of (users$|async)" (click)="viewUser(user)">
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <h4 mat-line>{{user.email}}</h4>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>

@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Subject, BehaviorSubject } from "rxjs";
 import { take } from "rxjs/operators";
+import { UserDataService } from "../data-services/user-data.service";
+import { User } from "firebase";
 
 export class AuthInfo {
     constructor(public $uid:string) {}
@@ -16,7 +18,7 @@ export class AuthenticationService {
     static UNKNOWN_USER = new AuthInfo(null);
     public authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthenticationService.UNKNOWN_USER);
 
-    constructor(private fireAuth: AngularFireAuth) {
+    constructor(private fireAuth: AngularFireAuth, private userDataServ: UserDataService) {
         
         this.fireAuth.authState.pipe(
             take(1)
@@ -33,6 +35,11 @@ export class AuthenticationService {
                 .then(res => {
                     if (res.user) {
                         this.authInfo$.next(new AuthInfo(res.user.uid));
+                        this.userDataServ.create({
+                            email: email,
+                            id: res.user.uid,
+                            username: res.user.displayName
+                          })
                         resolve(res.user);
                     }
                 })

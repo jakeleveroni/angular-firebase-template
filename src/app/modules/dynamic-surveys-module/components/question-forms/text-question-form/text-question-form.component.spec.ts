@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContestantsListComponent } from './contestants-list.component';
+import { TextQuestionFormComponent } from './text-question-form.component';
 
-describe('ContestantsListComponent', () => {
-  let component: ContestantsListComponent;
-  let fixture: ComponentFixture<ContestantsListComponent>;
+describe('TextQuestionFormComponent', () => {
+  let component: TextQuestionFormComponent;
+  let fixture: ComponentFixture<TextQuestionFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContestantsListComponent ]
+      declarations: [ TextQuestionFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContestantsListComponent);
+    fixture = TestBed.createComponent(TextQuestionFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

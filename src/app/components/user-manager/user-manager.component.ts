@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { UserDto, UserModel } from 'src/app/models/user.model';
+import { ActivatedRoute, Params } from '@angular/router';
+import { take, switchMap } from 'rxjs/operators';
+import { UserDataService } from 'src/app/services/data-services/user-data.service';
+import { of, Observable } from 'rxjs';
 import { UserFormSchemaService } from 'src/app/services/form-schemas/user-form-schema.component';
-import { Observable, of } from 'rxjs';
-import { UserDto } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-user-manager',
@@ -9,6 +12,17 @@ import { UserDto } from 'src/app/models/user.model';
   styleUrls: ['./user-manager.component.css']
 })
 export class UserManagerComponent {
-  constructor(private userSchema: UserFormSchemaService) {
+  public user$: Observable<UserDto>;
+  constructor(private schemaServ: UserFormSchemaService, private userDataServ: UserDataService, private route: ActivatedRoute) {
+    this.user$ = this.route.params.pipe(
+      take(1),
+      switchMap((params: Params) => {
+        if (params['id']) {
+          return this.userDataServ.getOne(params['id']);
+        } else {
+          return of(UserModel.emptyDto())
+        }
+      })
+    );
   }
 }
